@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as EC, expected_conditions
+
 
 class BasePageElement:
     """Base page class that is initialized on every page object class."""
@@ -31,3 +32,6 @@ class BasePageElement:
 
     def get_title(self):
         return self.driver.title
+
+    def wait_element_visible(self, locator):
+        self.wait.until(EC.presence_of_element_located(locator))
